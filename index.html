@@ -20,7 +20,10 @@
 html{scroll-behavior:smooth;}
 body{
   font-family:'Cormorant Garamond', serif;
-  background:var(--crema);
+  background-color:var(--crema);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg opacity='0.45'%3E%3Cg transform='translate(50,50)'%3E%3Ccircle cx='0' cy='-11' r='8' fill='%23e3aec2'/%3E%3Ccircle cx='10' cy='-3' r='8' fill='%23e3aec2'/%3E%3Ccircle cx='7' cy='9' r='8' fill='%23e3aec2'/%3E%3Ccircle cx='-7' cy='9' r='8' fill='%23e3aec2'/%3E%3Ccircle cx='-10' cy='-3' r='8' fill='%23e3aec2'/%3E%3Ccircle cx='0' cy='0' r='4' fill='%23b98d4f'/%3E%3C/g%3E%3Cg transform='translate(190,170) scale(1)'%3E%3Cpath d='M0 0 C -16 -22, -38 -11, -22 5 C -38 21, -16 32, 0 10 Z' fill='%23e6d2a8'/%3E%3Cpath d='M0 0 C 16 -22, 38 -11, 22 5 C 38 21, 16 32, 0 10 Z' fill='%23e6d2a8'/%3E%3Crect x='-1.5' y='-6' width='3' height='22' fill='%238a7a6d'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:260px 260px;
   color:var(--texto);
   overflow-x:hidden;
 }
@@ -91,7 +94,6 @@ body{
 /* ---------- SECCIONES DE CONTENIDO ---------- */
 .content{
   position:relative;
-  background:var(--crema);
   z-index:5;
 }
 section.block{
