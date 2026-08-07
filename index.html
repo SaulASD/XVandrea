@@ -373,11 +373,49 @@ footer .firma{
   </section>
 
   <section class="block reveal">
-    <div class="divider"></div>
-    <p class="texto">Tu presencia es muy importante para mí.</p>
-    <p class="texto">Te agradeceré confirmar tu asistencia antes del 15 de agosto de 2026.</p>
-    <a class="btn-whatsapp" href="https://wa.me/qr/I5CZ5D37GDBNK1" target="_blank" rel="noopener">Confirmar asistencia</a>
-  </section>
+  <div class="divider"></div>
+  <p class="texto">Tu presencia es muy importante para mí.</p>
+  <p class="texto">Te agradeceré confirmar tu asistencia antes del 15 de agosto de 2026.</p>
+
+  <form id="rsvpForm" style="max-width:380px; margin:30px auto 0; text-align:left;">
+    <label style="display:block; font-size:14px; letter-spacing:1px; color:var(--texto-suave); margin-bottom:6px;">Nombre completo</label>
+    <input type="text" name="nombre" required style="width:100%; padding:12px; margin-bottom:18px; border:1px solid var(--dorado-claro); background:#fff; font-family:'Cormorant Garamond',serif; font-size:16px;">
+
+    <label style="display:block; font-size:14px; letter-spacing:1px; color:var(--texto-suave); margin-bottom:6px;">¿Podrás acompañarnos?</label>
+    <div style="display:flex; gap:24px; margin-bottom:18px;">
+      <label style="font-size:16px;"><input type="radio" name="asistencia" value="Sí, asistiré" required> Sí, asistiré</label>
+      <label style="font-size:16px;"><input type="radio" name="asistencia" value="No podré asistir" required> No podré asistir</label>
+    </div>
+
+    <label style="display:block; font-size:14px; letter-spacing:1px; color:var(--texto-suave); margin-bottom:6px;">Mensaje para la quinceañera (opcional)</label>
+    <textarea name="mensaje" rows="3" style="width:100%; padding:12px; margin-bottom:18px; border:1px solid var(--dorado-claro); background:#fff; font-family:'Cormorant Garamond',serif; font-size:16px;"></textarea>
+
+    <button type="submit" class="btn-whatsapp" style="border:none; cursor:pointer; width:100%;">Enviar confirmación</button>
+  </form>
+
+  <p id="rsvpGracias" style="display:none; margin-top:20px; color:var(--dorado); font-size:18px;">
+    ¡Gracias por confirmar! Nos vemos pronto.
+  </p>
+</section>
+
+<script>
+document.getElementById('rsvpForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  const datos = new URLSearchParams(new FormData(form));
+
+  fetch('PEGA_AQUI_TU_URL_DE_APPS_SCRIPT', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: datos
+  }).then(() => {
+    form.style.display = 'none';
+    document.getElementById('rsvpGracias').style.display = 'block';
+  }).catch(() => {
+    alert('Hubo un problema al enviar. Intenta de nuevo o escribe por WhatsApp.');
+  });
+});
+</script>
 
 </div>
 
