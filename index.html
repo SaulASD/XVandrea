@@ -404,7 +404,7 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
   const form = e.target;
   const datos = new URLSearchParams(new FormData(form));
 
-  fetch('PEGA_AQUI_TU_URL_DE_APPS_SCRIPT', {
+  fetch('https://script.google.com/macros/s/AKfycbwotCCAZZfRixJQD428MSuz8_g1lVpKlYyup8fXo25u9py20MmAzVankhVdZeeva63O/exec', {
     method: 'POST',
     mode: 'no-cors',
     body: datos
