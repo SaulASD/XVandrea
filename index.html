@@ -400,6 +400,29 @@ footer .firma{
 </section>
 
 <script>
+  <script>
+// ---------- Mostrar número de pases según el link ----------
+const params = new URLSearchParams(window.location.search);
+const pases = params.get('pases');
+if (pases) {
+  const paseInfo = document.getElementById('paseInfo');
+  paseInfo.textContent = pases == 1
+    ? 'Tienes 1 pase disponible para este evento.'
+    : `Tienes ${pases} pases disponibles para este evento.`;
+  paseInfo.style.display = 'block';
+}
+
+document.getElementById('rsvpForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  const datos = new URLSearchParams(new FormData(form));
+
+  fetch('https://script.google.com/macros/s/AKfycbwH5hdUq807naa7yb82mLZKbs9xpzXuwGDUcBYtXdN-d7L7528iNhivGZ56DpArB0jo/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: datos
+  }).then(() => {
+    ...
 document.getElementById('rsvpForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
