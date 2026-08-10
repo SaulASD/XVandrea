@@ -400,7 +400,7 @@ footer .firma{
 </section>
 
 <script>
-  <script>
+<script>
 // ---------- Mostrar número de pases según el link ----------
 const params = new URLSearchParams(window.location.search);
 const pases = params.get('pases');
@@ -422,7 +422,13 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
     mode: 'no-cors',
     body: datos
   }).then(() => {
-    ...
+    form.style.display = 'none';
+    document.getElementById('rsvpGracias').style.display = 'block';
+  }).catch(() => {
+    alert('Hubo un problema al enviar. Intenta de nuevo o escribe por WhatsApp.');
+  });
+});
+</script>
 document.getElementById('rsvpForm').addEventListener('submit', function(e){
   e.preventDefault();
   const form = e.target;
